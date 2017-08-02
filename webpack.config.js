@@ -15,7 +15,7 @@ module.exports = {
   devtool: 'source-map',
   commonPath: commonPath,
   entry: {
-    app: path.join(src, 'index.js'),
+    app: path.join(src, 'main.js'),
     vendor: [
       'history',
       'lodash',
@@ -25,8 +25,7 @@ module.exports = {
       'react-router',
       'react-router-redux',
       'redux',
-      'redux-thunk',
-      'react-weui'
+      'redux-thunk'
     ]
   },
   output: {
@@ -36,14 +35,10 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx'],
     alias: {
-      API: path.join(src, 'api'),
       ACTION: path.join(src, 'redux/actions'),
       REDUCER: path.join(src, 'redux/reducers'),
       STORE: path.join(src, 'redux/store'),
-      ASSET: path.join(src, 'assets'),
-      COMPONENT: path.join(src, 'components'),
-      UTIL: path.join(src, 'utils'),
-      VIEW: path.join(src, 'views')
+      COMPONENT: path.join(src, 'components')
     }
   },
   resolveLoader: {
