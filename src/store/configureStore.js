@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { browserHistory } from 'react-router'
-import rootReducer from 'REDUCER'
+import rootReducer from '../reducers'
 import createSagaMiddleware from 'redux-saga'
 
 const sagaMiddleware = createSagaMiddleware()

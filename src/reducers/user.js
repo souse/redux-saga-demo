@@ -1,6 +1,6 @@
 import {
-	REQUEST_USER,
-	RECEIVE_USER
+	LOGIN_REQUEST,
+	LOGIN_SUCCESS
 } from 'ACTION/user'
 
 /**
@@ -9,26 +9,14 @@ import {
  * @param  {[type]} action [description]
  * @return {[type]}        [description]
  */
-export default function auth(state = {}, action) {
-	switch(action.type) {
-		case REQUEST_USER:
-		case RECEIVE_USER:
-			return {
-				...state,
-				user: post(state[action.user], action)
-			}
-		default:
-			return state
-	}
-}
+const initialState = { isFetching: false, user: { } }
 
-const post = (state = { isFetching: false, user: {} }, action) => {
+export default function auth(state = initialState, action) {
 	switch(action.type) {
-		case REQUEST_USER:
-			return { ...state, isFetching: true }
-		case RECEIVE_USER:
+		case LOGIN_REQUEST:
+			return { isFetching: true, user: { } }
+		case LOGIN_SUCCESS:
 			return {
-				...state,
 				isFetching: false,
 				user: action.user
 			}

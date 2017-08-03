@@ -1,16 +1,16 @@
-export const REQUEST_USER = 'REQUEST_USER'
-export const RECEIVE_USER = 'RECEIVE_USER'
+export const LOGIN_REQUEST = 'LOGIN_REQUEST'
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 
 export const requestUser = user => {
 	return {
-		type: REQUEST_USER,
+		type: LOGIN_REQUEST,
 		user
 	}
 }
 
 export const receiveUser = user => {
 	return {
-		type: RECEIVE_USER,
+		type: LOGIN_SUCCESS,
 		user
 	}
 }

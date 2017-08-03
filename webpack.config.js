@@ -35,9 +35,8 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx'],
     alias: {
-      ACTION: path.join(src, 'redux/actions'),
-      REDUCER: path.join(src, 'redux/reducers'),
-      STORE: path.join(src, 'redux/store'),
+      API: path.join(src, 'api'),
+      ACTION: path.join(src, 'actions'),
       COMPONENT: path.join(src, 'components')
     }
   },

@@ -10,7 +10,7 @@ base.output.publicPath = '/';
 
 base.entry = [
 	base.entry.app,
-	'webpack-hot-middleware/client'
+	'webpack-hot-middleware/client?reload=true'
 ];
 base.plugins.push(
   new webpack.HotModuleReplacementPlugin(),
