@@ -17,6 +17,16 @@ class Login extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this)
 	}
 
+	componentWillReceiveProps(nextProps) {
+		const { user } = nextProps.auth
+		const keys = Object.keys(user)
+
+		console.log('user', user)
+		if (keys.length != 0) {
+			this.context.router.replace('/person')
+		}
+	}
+
 	handleSubmit(e) {
 		const data = this.props.form.getFieldsValue()
 
@@ -24,7 +34,7 @@ class Login extends Component {
 	      	if (err) return false
 	    })
 		
-		this.props.requestUser(data) //这里只是一个测试 登录的时候不用借助于saga处理
+		this.props.requestUser(data)
 	}
 
 	render() {
@@ -69,6 +79,10 @@ class Login extends Component {
 Login.PropTypes = {
 	auth: PropTypes.object.isRequired
 }
+Login.contextTypes = {
+  	router: PropTypes.object.isRequired,
+  	store: PropTypes.object.isRequired
+};
 
 Login = Form.create()(Login)
 
