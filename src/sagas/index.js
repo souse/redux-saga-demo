@@ -8,6 +8,7 @@ function* authorize(user) {
 		const token = yield call(Api.authorize, user)
 
 		yield put({ type: 'LOGIN_SUCCESS', user: token })
+		// yield put(push('/person')) don't work
 	}catch(error) {
 		console.log(error)
 		yield put({ type: 'LOGIN_ERROR', error})
