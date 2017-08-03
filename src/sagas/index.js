@@ -1,4 +1,5 @@
 import { take, put, call, fork, select } from 'redux-saga/effects'
+import { push } from 'react-router-redux'
 import * as actions from 'ACTION/user'
 import * as Api from 'API'
 
@@ -6,9 +7,10 @@ function* authorize(user) {
 	try{
 		const token = yield call(Api.authorize, user)
 
-		//页面跳转
 		yield put({ type: 'LOGIN_SUCCESS', user: token })
+		yield put(push('/person'))
 	}catch(error) {
+		console.log(error)
 		yield put({ type: 'LOGIN_ERROR', error})
 	}
 } 

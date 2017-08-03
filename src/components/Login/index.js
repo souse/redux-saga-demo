@@ -24,7 +24,7 @@ class Login extends Component {
 	      	if (err) return false
 	    })
 		
-		//this.props.requestUser(data) //这里只是一个测试 登录的时候不用借助于saga处理
+		this.props.requestUser(data) //这里只是一个测试 登录的时候不用借助于saga处理
 	}
 
 	render() {

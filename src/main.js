@@ -7,6 +7,7 @@ import store, { history, runSaga } from './store/configureStore'
 import rootSaga from './sagas'
 
 import Login from 'COMPONENT/Login'
+import Person from 'COMPONENT/Person'
 
 runSaga(rootSaga)
 
@@ -16,7 +17,8 @@ render(
 			<Route path="/">
 				<IndexRedirect to="/login" />
 				<Route component={App}>
-					<Route path="/login" component={Login} />	
+					<Route path="/login" component={Login} />
+					<Route path="/person" component={Person} />
 				</Route>	
 			</Route>
 		</Router>
