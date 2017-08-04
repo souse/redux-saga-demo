@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { immutableRenderDecorator, shallowEqualImmutable } from 'react-immutable-render-mixin';
 import { Form, Icon, Input, Button, Checkbox } from 'antd'
 
 import * as Api from 'API'
@@ -10,12 +11,18 @@ import * as user from 'ACTION/user'
 import './index.less'
 
 const FormItem = Form.Item;
+
+// @immutableRenderDecorator 挂载
 class Login extends Component {
 	constructor(props) {
 		super(props)
 
 		this.handleSubmit = this.handleSubmit.bind(this)
 	}
+
+	shouldComponentUpdate(nextProps, nextState) {
+    	return !shallowEqualImmutable(this.props, nextProps) || !shallowEqualImmutable(this.state, nextState);  
+  	}
 
 	componentWillReceiveProps(nextProps) {
 		const { user } = nextProps.auth
