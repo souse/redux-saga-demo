@@ -30,7 +30,7 @@ class Login extends Component {
 
 		console.log('user', user)
 		if (keys.length != 0) {
-			this.context.router.replace('/person')
+			// this.context.router.replace('/person')
 		}
 	}
 
