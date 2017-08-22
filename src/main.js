@@ -1,7 +1,8 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { Router, Route, IndexRoute, IndexRedirect } from 'react-router'
+import { Route } from 'react-router'
+import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux'
 import App from './containers/App'
 import store, { history, runSaga } from './store/configureStore'
 import rootSaga from './sagas'
@@ -13,15 +14,12 @@ runSaga(rootSaga)
 
 render(
 	<Provider store={store}>
-		<Router history={history}>
-			<Route path="/">
-				<IndexRedirect to="/login" />
-				<Route component={App}>
-					<Route path="/login" component={Login} />
-					<Route path="/person" component={Person} />
-				</Route>	
-			</Route>
-		</Router>
+		<ConnectedRouter history={history}>
+			<div>
+				<Route exact path="/" component={Login}/>
+       			<Route path="/person" component={Person}/>
+			</div>
+		</ConnectedRouter>
 	</Provider>,
 	document.getElementById('root')
 )

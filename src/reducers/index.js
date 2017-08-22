@@ -5,7 +5,7 @@ import auth from './user'
 
 const rootReducer = combineReducers({
 	auth,
-	routing: routerReducer
+	router: routerReducer
 })
 
 export default rootReducer
